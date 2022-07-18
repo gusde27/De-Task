@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct De_TaskApp: App {
+    
+    //add core data for CRUD
+    let persistentContainer = TaskViewModel.shared.persistentContainer
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView().environment(\.managedObjectContext, persistentContainer.viewContext) //adding core data
         }
     }
 }
